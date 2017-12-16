@@ -1,0 +1,22 @@
+ <!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.pratik.domain.PhoneNumber" table="phone_numbersOTM">
+		<id name="phone" /> <!-- Singular Identifier Cfg -->
+		<property name="numberType" column="number_type" />
+		<property name="Operator" column="Operator" />
+	</class>
+</hibernate-mapping>
+
+<!-- 
+  create table user_table(user_id number(5) primary key,
+                                            first_name varchar2(20));
+                                            
+                                            
+  create table Phone_numbers(phone number(10) primary key,
+                                                      number_type varchar2(20),
+                                                      unid number(5) references user_table(user_id)); 
+                                                                                                
+ -->

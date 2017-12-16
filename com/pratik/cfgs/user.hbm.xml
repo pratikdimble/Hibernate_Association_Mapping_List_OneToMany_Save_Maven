@@ -1,0 +1,27 @@
+ <!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.pratik.domain.User" table="user_tableOTM">
+		<id name="userId" column="user_id" > <!-- Singular Identifier Cfg -->
+		<generator class="increment"/>
+		</id>
+		<property name="firstName"  column="first_name"/>
+		<set name="phones" cascade="all-delete-orphan"  lazy="true">
+		   <key column="unid"/>
+		   <one-to-many class="com.pratik.domain.PhoneNumber"/>
+		</set>
+	</class>
+</hibernate-mapping>
+
+<!-- 
+  create table user_table(user_id number(5) primary key,
+                                            first_name varchar2(20));
+                                            
+                                            
+  create table Phone_numbers(phone number(10) primary key,
+                                                      number_type varchar2(20),
+                                                      unid number(5) references user_table(user_id)); 
+                                                                                                
+ -->
